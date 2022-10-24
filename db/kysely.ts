@@ -10,10 +10,14 @@ interface Database {
   Users: UserTable
 }
 
-export const queryBuilder = new Kysely<Database>({
+console.log('INIT KYSELY')
+
+const queryBuilder = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
     host: process.env.DB_HOST,
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-  })
+  }),
 })
+
+export default queryBuilder

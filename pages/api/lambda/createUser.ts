@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { queryBuilder } from '../../../db/kysely'
+import queryBuilder from '../../../db/kysely'
 
 export interface CreateUserInput {
   name: string
@@ -11,7 +11,7 @@ export interface CreateUsersData {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<CreateUsersData>
+  res: NextApiResponse<CreateUsersData>,
 ) {
   const { name } = JSON.parse(req.body)
 
